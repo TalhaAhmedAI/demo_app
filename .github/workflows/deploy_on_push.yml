@@ -22,13 +22,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: setup Node.js env
-        run: npm install
-
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: actions/setup-node@v2-beta
+      - name: Setup Node.js env
+        uses: actions/setup-node@v2-beta
+        with:
+          version: 12
 
       - name: GitHub Action for Yarn
         uses: Borales/actions-yarn@v2.3.0
