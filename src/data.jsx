@@ -5,6 +5,7 @@ const Data = (props) => {
     <div>
       <h1>My name is {props.name}</h1>
       <h1>I'm learning {props.library}</h1>
+      <h1>I love {props.language}</h1>
     </div>
   );
 };

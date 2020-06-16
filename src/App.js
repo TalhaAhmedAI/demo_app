@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hello World!</h1>
-      <Data name="Talha" library="React" />
+      <Data name="Talha" library="React" language="JavaScipt" />
     </div>
   );
 }
