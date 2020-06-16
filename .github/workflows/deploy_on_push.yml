@@ -6,9 +6,9 @@ name: deploy
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,27 +19,27 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: setup Node.js env
-      run: npm install 
+      # Runs a single command using the runners shell
+      - name: setup Node.js env
+        run: npm install
 
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
-      run: actions/setup-node@v2-beta
-    
-    - name: GitHub Action for Yarn
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: actions/setup-node@v2-beta
+
+      - name: GitHub Action for Yarn
         uses: Borales/actions-yarn@v2.3.0
         with:
           # Yarn command
           cmd: install
-          
-    - name: creating build
+
+      - name: creating build
         run: yarn build
-        
-    - name: Installing Surge
+
+      - name: Installing Surge
         run: sudo npm i -g surge
 
       - name: deploying on surge app
